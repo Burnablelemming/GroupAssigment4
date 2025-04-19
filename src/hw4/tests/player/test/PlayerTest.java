@@ -1,4 +1,6 @@
-package hw4.player.test;
+package hw4.tests.player.test;
+
+import hw4.maze.player.Player;
 
 import static org.junit.jupiter.api.Assertions.*;
 
