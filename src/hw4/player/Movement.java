@@ -1,4 +1,4 @@
-package hw4.maze.player;
+package hw4.player;
 
 public enum Movement {
 	UP,

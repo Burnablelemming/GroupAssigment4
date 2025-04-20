@@ -1,4 +1,4 @@
-package hw4.maze.game;
+package hw4.game;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package hw4.maze.board;
+package hw4.maze;
 
 public enum CellComponents {
 	WALL,
