@@ -9,7 +9,7 @@ public class GameUtil {
     public static int getGridSize(Scanner scanner) {
         int size = 0;
         while (size < 3 || size > 7) {
-            System.out.print("Enter grid size (3–7): ");
+            System.out.print("Enter maze size (3–7): ");
             if (scanner.hasNextInt()) {
                 size = scanner.nextInt();
                 scanner.nextLine(); // consume newline
