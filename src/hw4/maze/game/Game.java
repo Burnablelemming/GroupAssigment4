@@ -44,6 +44,15 @@ public class Game {
 		// Create empty grid
 		grid = new Grid(rows);
 		
+		// Drunkard walk path carving algorithm
+		
+		// Start at the bottom right of the grid
+		int row = size - 1;
+		int col = size - 1;
+		
+		while(row > 0 || col > 0) {
+			
+		}
 		
 	}
 	
