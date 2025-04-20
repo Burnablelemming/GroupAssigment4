@@ -50,23 +50,44 @@ public class MazeGame {
 			Movement move = GameUtil.getMove(scanner);
 			
 			if(move == Movement.UP) {
-				System.out.println(game.play(move, player) ? "Move Successful" : "Move Unsuccessful");
-				//game.printGrid(player);
+				if (game.play(move, player)) {
+			        System.out.println("\nMove Successful\n");
+			    } else {
+			        System.out.println("\nMove Unsuccessful\n");
+			        game.printGrid(player); // this prints directly to console
+			    }
 			}
 			else if(move == Movement.DOWN) {
-				System.out.println(game.play(move, player) ? "Move Successful" : "Move Unsuccessful");
-				//game.printGrid(player);
+				if (game.play(move, player)) {
+			        System.out.println("\nMove Successful\n");
+			    } else {
+			        System.out.println("\nMove Unsuccessful\n");
+			        game.printGrid(player); // this prints directly to console
+			    }
 			}
 			else if(move == Movement.LEFT) {
-				System.out.println(game.play(move, player) ? "Move Successful" : "Move Unsuccessful");
-				//game.printGrid(player);
-				if(player.getCurrentCell().getLeft() == CellComponents.EXIT) {
+				
+				if(player.getCurrentCell().getLeft() != CellComponents.EXIT) {
+					// Play like normal
+					if (game.play(move, player)) {
+				        System.out.println("\nMove Successful\n");
+				    } else {
+				        System.out.println("\nMove Unsuccessful\n");
+				        game.printGrid(player); // this prints directly to console
+				    }
+				}
+				else {
+					game.play(move, player);
 					hasEscaped = true;
 				}
 			}
 			else if(move == Movement.RIGHT) {
-				System.out.println(game.play(move, player) ? "Move Successful" : "Move Unsuccessful");
-				//game.printGrid(player);
+				if (game.play(move, player)) {
+			        System.out.println("\nMove Successful\n");
+			    } else {
+			        System.out.println("\nMove Unsuccessful\n");
+			        game.printGrid(player); // this prints directly to console
+			    }
 		}
 	}
 }
