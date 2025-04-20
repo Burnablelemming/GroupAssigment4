@@ -125,6 +125,7 @@ public class Game {
 					row--;
 					player.setCurrentRow(grid.getRows().get(row));
 					player.setCurrentCell(getCellAt(row, col));
+					printGrid(player);
 					return true;
 				} 
 				
@@ -138,10 +139,12 @@ public class Game {
 					col--;
 					//player.setCurrentRow(grid.getRows().get(row));
 					player.setCurrentCell(getCellAt(row, col));
+					printGrid(player);
 					return true;
 				} else if(player.getCurrentCell().getLeft() == CellComponents.EXIT) {
 					// Player escaped
 					System.out.println("Player has escaped Diddy's House... With only stains of baby oil present.");
+					printGrid(player);
 					return true;
 				}
 				else {
@@ -154,6 +157,7 @@ public class Game {
 					row++;
 					player.setCurrentRow(grid.getRows().get(row));
 					player.setCurrentCell(getCellAt(row, col));
+					printGrid(player);
 					return true;
 				} 
 				
@@ -167,6 +171,7 @@ public class Game {
 					col++;
 					player.setCurrentRow(grid.getRows().get(row));
 					player.setCurrentCell(getCellAt(row, col));
+					printGrid(player);
 					return true;
 				} 
 				
@@ -180,6 +185,24 @@ public class Game {
 	}
 	private Cell getCellAt(int row, int col) {
 		return grid.getRows().get(row).getCells().get(col);
+	}
+	
+	public void printGrid(Player player) {
+	    for (int i = 0; i < grid.getRows().size(); i++) {
+	        Row row = grid.getRows().get(i);
+	        for (int j = 0; j < row.getCells().size(); j++) {
+	            Cell cell = row.getCells().get(j);
+	            
+	            if (player.getCurrentRow() == row && player.getCurrentCell() == cell) {
+	                System.out.print("A ");
+	            } else if (j == 0 && cell.getLeft() == CellComponents.EXIT) {
+	                System.out.print("E ");
+	            } else {
+	                System.out.print("S ");
+	            }
+	        }
+	        System.out.println();
+	    }
 	}
 
 }
