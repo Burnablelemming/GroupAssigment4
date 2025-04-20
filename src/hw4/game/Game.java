@@ -16,6 +16,10 @@ public class Game {
 	public Game(Grid grid) {
 		this.grid = grid;
 	}
+	
+	public Game(int size) {
+		this.grid = createRandomGrid(size);
+	}
 
 	public Grid getGrid() {
 		return grid;
