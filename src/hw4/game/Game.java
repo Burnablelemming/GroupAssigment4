@@ -11,27 +11,58 @@ import hw4.maze.Row;
 import hw4.player.Movement;
 import hw4.player.Player;
 
+/**
+ * Represents the game logic for navigating and escaping the maze.
+ * Handles the grid generation, player movement, and visual of game grid.
+ */
 public class Game {
 	
 	private Grid grid;
 
+	/**
+	 * Constructs a Game instance using a predefined grid.
+	 *
+	 * @param grid 			the Grid object to use for the game
+	 */
 	public Game(Grid grid) {
 		this.grid = grid;
 	}
 	
+	/**
+	 * Constructs a Game instance and generates a random grid of the given size.
+	 *
+	 * @param size 			the size (N x N) of the grid to generate; must be in range 3-7
+	 */
 	public Game(int size) {
 		this.grid = createRandomGrid(size);
 	}
 
+	/**
+	 * Returns the current grid used in the game.
+	 *
+	 * @return the Grid object
+	 */
 	public Grid getGrid() {
 		return grid;
 	}
 
+	/**
+	 * Replaces the current grid with a new one.
+	 *
+	 * @param grid 			the new Grid object to set
+	 */
 	public void setGrid(Grid grid) {
 		this.grid = grid;
 	}
 	
-	
+	/**
+	 * Generates a random maze (grid) of the specified size using a drunkard's walk algorithm.
+	 * Each cell is initialized with walls on all sides, then paths (apertures) are added.
+	 * One exit is added to the left side of the top-left cell (0,0).
+	 *
+	 * @param size 			the grid size within range 3-7
+	 * @return the randomly generated Grid, or null if the size is invalid
+	 */
 	public Grid createRandomGrid(int size) {
 		// Invalid size of grid
 		if(size < 3 || size > 7) {
@@ -111,6 +142,16 @@ public class Game {
 		return grid;
 	}
 	
+	/**
+	 * Attempts to move the player in the specified direction.
+	 * Updates the player's current cell and row if the move is valid.
+	 * If the player reaches the EXIT, a message is printed.
+	 * After each valid move, the updated grid is printed to the console.
+	 *
+	 * @param direction 		the direction to move (UP, DOWN, LEFT, RIGHT)
+	 * @param player    		the Player to move
+	 * @return true if the movement was valid and executed, false otherwise
+	 */
 	public boolean play(Movement direction, Player player) {
 		
 		if(player != null) {
@@ -183,10 +224,26 @@ public class Game {
 		// player null
 		return false;
 	}
+	
+	/**
+	 * Retrieves the cell at the specified row and column from the grid.
+	 *
+	 * @param row 			the row index
+	 * @param col 			the column index
+	 * @return the Cell at the specified location
+	 */
 	private Cell getCellAt(int row, int col) {
 		return grid.getRows().get(row).getCells().get(col);
 	}
 	
+	/**
+	 * Prints a visual representation of the current grid state to the console.
+	 * - 'A' marks the player's current cell
+	 * - 'E' marks the exit
+	 * - 'S' marks all other spaces
+	 *
+	 * @param player 			the Player whose position is displayed
+	 */
 	public void printGrid(Player player) {
 	    for (int i = 0; i < grid.getRows().size(); i++) {
 	        Row row = grid.getRows().get(i);
