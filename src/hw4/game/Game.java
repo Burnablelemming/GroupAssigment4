@@ -161,31 +161,26 @@ public class Game {
 			
 			if(direction == Movement.UP) {
 				if(player.getCurrentCell().getUp() == CellComponents.APERTURE) {
-					// For grid view implementation add a member to change the previous current cell to 'S'
-					// and update the new current cell to 'A'
 					row--;
 					player.setCurrentRow(grid.getRows().get(row));
 					player.setCurrentCell(getCellAt(row, col));
 					printGrid(player);
 					return true;
-				} 
-				
+				}
 				else {
 					return false;
 				}	
 			} else if(direction == Movement.LEFT) {
 				if(player.getCurrentCell().getLeft() == CellComponents.APERTURE) {
-					// For grid view implementation add a member to change the previous current cell to 'S'
-					// and update the new current cell to 'A'
 					col--;
-					//player.setCurrentRow(grid.getRows().get(row));
 					player.setCurrentCell(getCellAt(row, col));
 					printGrid(player);
 					return true;
 				} else if(player.getCurrentCell().getLeft() == CellComponents.EXIT) {
+					
 					// Player escaped
-					System.out.println("Player has escaped Diddy's House... With only stains of baby oil present.");
 					printGrid(player);
+					System.out.println("Player has escaped Diddy's House... With only stains of baby oil present.");
 					return true;
 				}
 				else {
@@ -193,29 +188,23 @@ public class Game {
 				}
 			} else if(direction == Movement.DOWN) {
 				if(player.getCurrentCell().getDown() == CellComponents.APERTURE) {
-					// For grid view implementation add a member to change the previous current cell to 'S'
-					// and update the new current cell to 'A'
 					row++;
 					player.setCurrentRow(grid.getRows().get(row));
 					player.setCurrentCell(getCellAt(row, col));
 					printGrid(player);
 					return true;
 				} 
-				
 				else {
 					return false;
 				}
 			} else if(direction == Movement.RIGHT) {
 				if(player.getCurrentCell().getRight() == CellComponents.APERTURE) {
-					// For grid view implementation add a member to change the previous current cell to 'S'
-					// and update the new current cell to 'A'
 					col++;
 					player.setCurrentRow(grid.getRows().get(row));
 					player.setCurrentCell(getCellAt(row, col));
 					printGrid(player);
 					return true;
 				} 
-				
 				else {
 					return false;
 				}
