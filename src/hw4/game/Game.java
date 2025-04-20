@@ -27,7 +27,7 @@ public class Game {
 	public Game(Grid grid) {
 		this.grid = grid;
 	}
-	
+
 	/**
 	 * Constructs a Game instance and generates a random grid of the given size.
 	 *
@@ -260,6 +260,11 @@ public class Game {
 	        }
 	        System.out.println();
 	    }
+	}
+	
+	@Override
+	public String toString() {
+		return "Game [grid=" + grid + "]";
 	}
 
 }
