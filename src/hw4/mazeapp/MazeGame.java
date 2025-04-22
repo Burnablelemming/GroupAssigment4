@@ -12,7 +12,7 @@ import hw4.player.Player;
 
 /**
  * The MazeGame class launches the interactive console-based 
- * adventure through "diddy's House" - a randomly generated maze.
+ * adventure through a randomly generated maze.
  * 
  * This cursed maze game challenges the player to navigate from the
  * bottom-right corner of the grid to the only exit at the top-left,
@@ -22,10 +22,6 @@ import hw4.player.Player;
  * that move the player ('A') one cell at a time through apertures,
  * until they eventually escape ('E').
  * 
- * DISCLAIMER: This project contains reference to 
- * "Diddy's House" purely for humor and meme-related purposes. The developers
- * do not endorse or support any real-life actions or allegations associated
- * with Sean "Diddy" Combs.
  */
 public class MazeGame {
 
@@ -47,8 +43,8 @@ public class MazeGame {
 		Row startingRow;
 		Cell startingCell;
 		
-		System.out.println("You awaken in a dimly lit, oil-slicked corridor. The walls hum with anticipation. "
-				+ "\nWelcome to the Maze of Diddy's House. One way in. One way out. \nFind the exit... or become part of the floor shine.\n");
+		System.out.println("You awaken in a dimly lit, corridor. The walls hum with anticipation. "
+				+ "\nWelcome to the Maze. One way in. One way out. \nFind the exit... or else.\n");
 		
 		// Initialize game
 		boolean hasEscaped = false;
