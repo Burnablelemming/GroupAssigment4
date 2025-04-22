@@ -180,7 +180,7 @@ public class Game {
 					
 					// Player escaped
 					printGrid(player);
-					System.out.println("Player has escaped Diddy's House... With only stains of baby oil present.");
+					System.out.println("You have escaped the maze!");
 					return true;
 				}
 				else {
